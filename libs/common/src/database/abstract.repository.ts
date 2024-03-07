@@ -21,6 +21,7 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     document: Omit<TDocument, '_id'>,
     options?: SaveOptions,
   ): Promise<TDocument> {
+    console.log(document, options)
     const createdDocument = new this.model({
       ...document,
       _id: new Types.ObjectId(),
